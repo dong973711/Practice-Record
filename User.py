@@ -1,6 +1,6 @@
 class User:
     
-    def __init__(self, id, username, birthdate, money, father, mother):
+    def __init__(self, id, username, birth_date, money, father, mother):
         self.id = id
         self.username = username
         self.birth_date = birth_date

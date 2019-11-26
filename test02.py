@@ -45,7 +45,7 @@ def deleteDb(id):
 def insertDb(user1):
     openDb()
     sql = "insert into user values('%d','%s','%s','%d','%s','%s')" % (
-        user1.id, user1.username, user1.birth_data, user1.money, user1.father, user1.mother)
+        user1.id, user1.username, user1.birth_date, user1.money, user1.father, user1.mother)
     # "INSERT INTO mytb(title,keywd) VALUES('%s','%s')"%(x,y)
     cursor.execute(sql)
     db.commit()
