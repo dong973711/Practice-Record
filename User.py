@@ -1,15 +1,9 @@
 class User:
-    id = 0
-    username = ""
-    birth_data = ""
-    money = 0
-    father = ""
-    mother = ""
-
-    def __init__(self, id, username, birthdata, money, father, mother):
+    
+    def __init__(self, id, username, birthdate, money, father, mother):
         self.id = id
         self.username = username
-        self.birth_data = birthdata
+        self.birth_date = birth_date
         self.money = money
         self.father = father
         self.mother = mother
@@ -26,8 +20,8 @@ class User:
     def get_money(self):
         return self.money
 
-    def dayin(self):
+    def print(self):
         if self.father == None:
-            print("id:", self.id, " father= NULL mother=NULL")
+            print("id: {} father= NULL mother= NULL".format(self.id))
         else:
-            print("id:", self.id, " father=", self.father.username, "  mother=", self.mother.username)
+            print("id: {} father= {}  mother= {}".format(self.id, self.father.id, self.mother.id))
