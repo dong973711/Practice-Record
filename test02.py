@@ -24,11 +24,10 @@ def serarchDb(id):
     else:
         print("查找成功")
         data = cursor.fetchone()
-        closeDb()
         print(data)
         user1 = User(data[0], data[1], data[2], int(data[3]), data[4], data[5])
         return user1
-
+    closeDb()
 
 # 按照用户id删除用户记录
 def deleteDb(id):
