@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.how2java.mapper.ProductMapper">
+	<insert id="add" parameterType="Product">
+		<!-- parameterType为输入参数，在配置的时候，配置相应的 输入参数类型即可。parameterType有基本数据类型和复杂的数据类型配置。 
+			1.基本数据类型，如输入参数只有一个，其数据类型可以是基本的数据类型，也可以是 自己定的类类型。 -->
+		insert into product (name,price,cid) values (#{name},#{price},1)
+	</insert>
+
+	<delete id="delete" parameterType="Product">
+		<!-- resultType是sql映射文件中定义返回值类型，返回值有基本类型，对象类型，List类型，Map类型等 -->
+		delete from product where id=#{id}
+	</delete>
+
+	<select id="get" parameterType="_int" resultType="Product">
+		select * from product where id = #{id}
+	</select>
+
+	<update id="update" parameterType="Product" >
+	        update product set name=#{name} , price=#{price}, cid=1  where id=#{id}    
+	</update>
+	    
+
+	<select id="list" resultType="Product">
+		 select * from   product     
+         <!--     <if test="start!=null and count!=null">
+                    limit #{start},#{count}
+            </if>	-->
+	</select>
+	
+	<select id="total" resultType="int">
+		select count(*) from product
+	</select>
+</mapper>
