@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">-->
+</head>
+<body style="align-self: center">
+<form method="post">
+    {{form.csrf_token()}}
+    {{form.author.label}}{{form.author}}<br>
+    {{form.book.label}}{{form.book}}<br>
+    {{form.submit}}<br>
+    {% for message in get_flashed_message%}
+        {{message}}
+    {% endfor %}
+</form>
+
+<hr>
+    <ul>
+        {% for author in authors %}
+        <li><div id='auth'>{{author.name}}
+                <a href="{{ url_for("delete_author",authorid=author.id) }}">删除</a></div>
+                <ul>
+                    {% for book in author.books %}
+                    <li><div id='book'>{{book.name}}<a href="{{ url_for("delete_book",book_id=book.id) }}">
+                        删除</a></div></li>
+                    {% else %}
+                        <li><div id="book1">无</div></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
